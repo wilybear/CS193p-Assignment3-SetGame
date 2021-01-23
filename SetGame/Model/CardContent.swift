@@ -14,11 +14,11 @@ struct CardContent{
     let shapeColor : ShapeColor
     
     // Determine whether to match or not
-    func isMatch(first:CardContent, second: CardContent, third:CardContent) -> (Bool){
+    static func isMatch(first:CardContent, second: CardContent, third:CardContent) -> (Bool){
         isContentMatch(first.shape,second.shape,third.shape) && isContentMatch(first.count,second.count,third.count) && isContentMatch(first.shapeColor,second.shapeColor,third.shapeColor) && isContentMatch(first.fill,second.fill,third.fill)
     }
     
-    private func isContentMatch<T>(_ first:T,_ second:T, _ third:T) -> (Bool) where T :Equatable{
+    private static func isContentMatch<T>(_ first:T,_ second:T, _ third:T) -> (Bool) where T :Equatable{
         (first == second && second == third) || (first != second && second != third && first != third)
     }
     
